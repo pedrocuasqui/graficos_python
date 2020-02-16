@@ -30,7 +30,7 @@ tipo_juego = []
 tiempo_juego = []
 posicion_jugador = []
 nivel = []
-
+juegos =[{"nombre":"OSU", "tipo":"Arcade"},{"nombre":"Snake","tipo":"Estrategia"},{"nombre":"Mario", "tipo":"Aventura"},{"nombre":"GuitarHero", "tipo":"Acción"}]
 for _ in range(numero_casos):
     #crea fechas de prueba
     fecha.append(fake.date(pattern='%Y-%m-%d', end_datetime=None))
@@ -38,14 +38,15 @@ for _ in range(numero_casos):
     usuario.append(fake.name())
     #crea puntaje de prueba
     puntaje.append(fake.credit_score())#instalar en ananconda promtp :  pip install faker-credit-score
-    #crea nombre de juego # reemplazar los nombres despues
-    juego.append(random.choice(["OSU","Snake","Mario", "GuitarHero"]))
+    #crea nombre de juego # reemplazar los nombres despues    
+    juego_random=random.choice(juegos)    
+    juego.append(juego_random["nombre"])
         #crea usuarios de prueba
-    tipo_juego.append(random.choice(["Aventura","Arcade","Estrategia", "Simulacion", "Rol", "Deportes", "Accion"]))
+    tipo_juego.append(juego_random["tipo"])
     #crea usuarios de prueba
-    tiempo_juego.append(random.random())
+    tiempo_juego.append(random.random()*2)
     #crea usuarios de prueba
-    posicion_jugador.append(random.choice(["Primero","Segundo","Tercero"]))
+    posicion_jugador.append(random.choice(["Primero","Segundo","Tercero","Cuarto", "Quinto","Sexto","Séptimo","Octavo","Noveno","Décimo"]))
     #crea usuarios de prueba
     nivel.append(random.choice(["Facil","Intermedio","Dificil"]))
 
@@ -53,3 +54,4 @@ for _ in range(numero_casos):
 frame = { 'fecha': pd.Series(fecha), 'usuario': pd.Series(usuario), 'puntaje':pd.Series(puntaje), 'juego':pd.Series(juego), 'tipo_juego':pd.Series(tipo_juego), 'tiempo_juego':pd.Series(tiempo_juego), 'posicion_jugador':pd.Series(posicion_jugador), 'nivel':pd.Series(nivel)} 
 df = pd.DataFrame(frame) #USAR ESTE DATAFRAME PARA LOS GRAFICOS
 pd.to_pickle(df,"C:\\Users\\PedroW10\\Documents\\GitHub\\graficos_python\\test.pickle")
+
