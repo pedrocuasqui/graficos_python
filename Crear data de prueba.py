@@ -53,5 +53,6 @@ for _ in range(numero_casos):
 
 frame = { 'fecha': pd.Series(fecha), 'usuario': pd.Series(usuario), 'puntaje':pd.Series(puntaje), 'juego':pd.Series(juego), 'tipo_juego':pd.Series(tipo_juego), 'tiempo_juego':pd.Series(tiempo_juego), 'posicion_jugador':pd.Series(posicion_jugador), 'nivel':pd.Series(nivel)} 
 df = pd.DataFrame(frame) #USAR ESTE DATAFRAME PARA LOS GRAFICOS
-pd.to_pickle(df,"C:\\Users\\PedroW10\\Documents\\GitHub\\graficos_python\\test.pickle")
+
+#pd.to_pickle(df,"C:\\Users\\PedroW10\\Documents\\GitHub\\graficos_python\\test.pickle")
 
